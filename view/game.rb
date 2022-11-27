@@ -8,8 +8,7 @@ class Race_game
   end
 
   def wolf_runs(time2)
-    (time2 - time1) / @game_duration  #això seria una regla de tres
-
+   #això seria una regla de tres
     @start_distance += 1
     @wolf_to_pig_distance -= 1
     if @wolf_to_pig_distance == 0
@@ -25,9 +24,7 @@ class Race_game
     p "wolf wins"
   end
 
-  def display
-   p  @start_distance
-   p  @wolf_to_pig_distance
-   p  @pig_to_house_distance
+  def distances_array
+   [@start_distance, @wolf_to_pig_distance, @pig_to_house_distance]
   end
 end
