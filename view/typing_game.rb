@@ -6,6 +6,8 @@ count = 0
 start_distance = 0
 mid_distance = 49
 final_distance = 100
+wolf_run = timelapse.to_f / mid_distance.to_f + final_distance.to_f
+
 until time2.to_f - time1.to_f >= timelapse do
   time2 = Time.now
   puts ("🌲" * start_distance) + "🐺" + "🌲" * (mid_distance + count) + "🐷" + "🌲" * final_distance + "🏠"
