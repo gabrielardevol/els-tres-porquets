@@ -18,6 +18,7 @@ until time2.to_f - time1.to_f >= timelapse do
   gets.chomp ? count += 1 : nil
   p now = time2.to_f - time1.to_f
   p wolf_run
+  p now / wolf_run
 
   if 2 + 2 == 4
     p "wolf"
