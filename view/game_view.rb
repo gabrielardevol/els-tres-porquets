@@ -10,12 +10,8 @@ class GameView
       puts "🌲" * start_distance.to_i + "🐺" + "🍖" +  "🌲" * pig_to_house_distance + "🏠"
     elsif array[2] > 0
       puts "🌲" * start_distance.to_i + "🐺" + "🌲" * wolf_to_pig_distance.to_i + "🐷" + "🌲" * (pig_to_house_distance - 1) + "🏠"
-    elsif pig_to_house_distance == 0
-      puts "🌲" * start_distance.to_i + "🐺" + "🌲" * wolf_to_pig_distance.to_i + "🏠"
-    elsif pig_to_house_distance >= -1
-      puts "🌲" * start_distance.to_i + "🐺" + "🌲" * (wolf_to_pig_distance.to_i + pig_to_house_distance) + "🏠"
-    elsif wolf_to_pig_distance <= 0 && pig_to_house_distance <= 0
-      puts "🌲" * start_distance.to_i + "🐺" + "🍖" +  "🌲" * pig_to_house_distance + "🏠"
+    elsif pig_to_house_distance <= 0
+      puts "🌲" * (start_distance.to_i) + "🐺" + "🌲" * wolf_to_pig_distance.to_i + "🏠"
     end
   end
 end
