@@ -1,3 +1,4 @@
+
 class Game
   def initialize(start_distance, wolf_to_pig_distance, pig_to_house_distance, game_duration)
     @start_distance = start_distance
@@ -8,18 +9,9 @@ class Game
     @time1 = Time.now
   end
 
-  def wolf_runs(time2)
-    if @wolf_to_pig_distance > 0
-      @start_distance =  (@total_distance / @game_duration) * (time2 - @time1)
-      @wolf_to_pig_distance = @total_distance - (@start_distance + @pig_to_house_distance)
-      if (@start_distance + @pig_to_house_distance) > @total_distance
-        return "bug"
-      end
-      # there is a bug in here // when wolf catches pig, start_distance still grows
-    p @total_distance
-    elsif @wolf_to_pig_distance <= 0
-      @wolf_to_pig_distance == 0
-    end
+  def wolf_runs(time2) # there is a bug
+    @start_distance = (@total_distance / @game_duration) * (time2 - @time1)
+    @wolf_to_pig_distance = @total_distance - (@start_distance + @pig_to_house_distance)
   end
 
   def pig_runs
@@ -28,6 +20,6 @@ class Game
   end
 
   def distances_array
-   [@start_distance, @wolf_to_pig_distance, @pig_to_house_distance]
+    [@start_distance, @wolf_to_pig_distance, @pig_to_house_distance]
   end
 end
