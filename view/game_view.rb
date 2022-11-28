@@ -2,9 +2,13 @@ class GameView
   def initialize
   end
   def display(array)
-    p start_distance = array[0]
-    p wolf_to_pig_distance = array[1]
-    p pig_to_house_distance = array[2]
+    start_distance = array[0]
+    wolf_to_pig_distance = array[1]
+    pig_to_house_distance = array[2]
+    p "start distance " + start_distance.to_s
+    p "wolf to pig " + wolf_to_pig_distance.to_s
+    p "pig to house " + pig_to_house_distance.to_s
+    p "total_distance " + (array[0].to_i + array[1].to_i + array[2].to_i).to_s
 
     if wolf_to_pig_distance <= 0
       puts "🌲" * start_distance.to_i + "🐺" + "🍖" +  "🌲" * pig_to_house_distance + "🏠"
