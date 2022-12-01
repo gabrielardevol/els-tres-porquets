@@ -24,4 +24,5 @@ class Text
       puts ''
     end
   end
+
 end

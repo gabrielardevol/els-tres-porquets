@@ -13,7 +13,7 @@ class GameController
     until @game.distances_array[2].zero? || @game.distances_array[1] <= 0
       @game.wolf_runs(Time.now)
       @game.pig_runs
-      puts @view.display(@game.distances_array)
+      puts @view.display_rungame(@game.distances_array)
       gets.chomp
     end
     run_result

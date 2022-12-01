@@ -1,5 +1,5 @@
 class ImageRepository
-  def image1
+  def image1(rythm = 0.3)
     array = []
 
     array <<"                                            /@@@@@@@"
@@ -30,7 +30,7 @@ class ImageRepository
 
     array.each do |line|
       puts line
-      sleep(0.3)
+      sleep(rythm)
     end
   end
 end
