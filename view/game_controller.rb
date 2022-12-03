@@ -3,16 +3,17 @@ require_relative 'game_view'
 # GameController
 class GameController
   # TODO: pass hash as an argument
-  def initialize(start_distance = 0, wolf_to_pig_distance = 20, pig_to_house_distance = 80, time_duration = 11.9)
-    @game = Game.new(start_distance, wolf_to_pig_distance, pig_to_house_distance, time_duration)
+  def initialize(hash = {})
+    @game = Game.new(hash)
     @view = GameView.new
-    run
+    # run
   end
 
   def run
     until @game.distances_array[2].zero? || @game.distances_array[1] <= 0
       @game.wolf_runs(Time.now)
       @game.pig_runs
+      @game.distances_array
       puts @view.display_rungame(@game.distances_array)
       gets.chomp
     end
