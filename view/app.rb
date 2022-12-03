@@ -21,6 +21,43 @@ hash = {
   game_duration: 11.95
 }
 
+
+p "0"
+GameView.new.bricks(0)
+sleep(0.2)
+p "1"
+GameView.new.bricks(1)
+sleep(0.2)
+p "2"
+GameView.new.bricks(2)
+sleep(0.2)
+p "3"
+GameView.new.bricks(3)
+sleep(0.2)
+p "4"
+GameView.new.bricks(4)
+sleep(0.2)
+p "5"
+GameView.new.bricks(5)
+sleep(0.2)
+p "6"
+GameView.new.bricks(6)
+sleep(0.2)
+p "7"
+GameView.new.bricks(7)
+sleep(0.2)
+p "8"
+GameView.new.bricks(8)
+sleep(0.2)
+p "9"
+GameView.new.bricks(9)
+sleep(0.2)
+p "10"
+GameView.new.bricks(10)
+sleep(0.2)
+p "11"
+GameView.new.bricks(11)
+sleep(0.2)
 p "12"
 GameView.new.bricks(12)
 sleep(0.2)
@@ -53,6 +90,9 @@ GameView.new.bricks(21)
 sleep(0.2)
 p "22"
 GameView.new.bricks(22)
+p "23"
+GameView.new.bricks(23)
+sleep(0.2)
 
 
 GameController.new(hash)

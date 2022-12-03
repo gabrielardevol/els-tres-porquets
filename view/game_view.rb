@@ -44,7 +44,16 @@ class GameView
     puts n >= 14 ? (row3) : nil
     n > 8 && n < 14 ? puts( " "*(12-((n-8)*2)) + "🧱"*(n - 8)) : nil
     puts n >= 8 ? (row2) : nil
+    n == 7 ? puts("  🧱    🧱🧱") : nil
+    n == 6 ? puts("        🧱🧱") : nil
+    n == 5 ? puts("          🧱") : nil
     puts n >= 4 ? (row1) : nil
+    n == 3 ? puts("  🧱🐷🐷🧱🧱") : nil
+    n == 2 ? puts("    🐷🐷🧱🧱") : nil
+    n == 1 ? puts("    🐷🐷  🧱") : nil
+    n == 0 ? puts("    🐷🐷    ") : nil
+
+
     # case n
     # when n >= 4
     #   puts row1
