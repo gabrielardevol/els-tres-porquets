@@ -15,12 +15,18 @@ class HouseGameView < GameView
     puts n >= 19 ? (row4) : nil
     n > 14 && n < 19 ? puts( " "*(11-((n-14)*2)) + "🧱"*(n - 14)) : nil
     puts n >= 14 ? (row3) : nil
-    n > 8 && n < 14 ? puts( " "*(12-((n-8)*2)) + "🧱"*(n - 8)) : nil
+    fractioned_row(n)
     puts n >= 8 ? (row2) : nil
+    fractioned_row(n)
+    puts n >= 4 ? (row1) : nil
+    fractioned_row(n)
+
+  end
+
+  def fractioned_row(n)
     n == 7 ? puts("  🧱    🧱🧱") : nil
     n == 6 ? puts("        🧱🧱") : nil
     n == 5 ? puts("          🧱") : nil
-    puts n >= 4 ? (row1) : nil
     n == 3 ? puts("  🧱🐷🐷🧱🧱") : nil
     n == 2 ? puts("    🐷🐷🧱🧱") : nil
     n == 1 ? puts("    🐷🐷  🧱") : nil

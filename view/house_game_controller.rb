@@ -1,4 +1,5 @@
 require_relative "game_controller.rb"
+require_relative "house_game_view"
 class HouseGameController < GameController
   def pigs_build
     n = 0
