@@ -9,7 +9,7 @@ class GameController
     # run
   end
 
-  def run
+  def pig_runs
     until @game.distances_array[2].zero? || @game.distances_array[1] <= 0
       @game.wolf_runs(Time.now)
       @game.pig_runs
