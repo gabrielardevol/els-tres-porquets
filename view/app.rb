@@ -22,6 +22,23 @@ hash = {
   game_duration: 11.95
 }
 
+# HouseGameView.new.display_house(1)
+# HouseGameView.new.display_house(2)
+# HouseGameView.new.display_house(3)
+# HouseGameView.new.display_house(4)
+# HouseGameView.new.display_house(5)
+# HouseGameView.new.display_house(6)
+# HouseGameView.new.display_house(7)
+# HouseGameView.new.display_house(8)
+# HouseGameView.new.display_house(9)
+# HouseGameView.new.display_house(10)
+# HouseGameView.new.display_house(11)
+# HouseGameView.new.display_house(12)
+# HouseGameView.new.display_house(13)
+# HouseGameView.new.display_house(14)
+# HouseGameView.new.display_house(15)
+# HouseGameView.new.display_house(16)
+
 HouseGameController.new.pigs_build
 
 GameController.new(hash)
