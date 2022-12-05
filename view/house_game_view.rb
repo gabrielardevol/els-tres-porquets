@@ -10,11 +10,7 @@ class HouseGameView < GameView
     @row1 = "🧱🧱🐷🐷🧱🧱"
 
     @margin = (" " * 10)
-    @wolf = "#{@margin[0...-2]}#{display_wolf()}"
-  end
-
-  def display_wolf
-    "🐺"
+    @wolf = "🐺#{@margin[0...-2]}"
   end
 
   def display_house(n)
