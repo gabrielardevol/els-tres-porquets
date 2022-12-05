@@ -39,6 +39,6 @@ hash = {
 # HouseGameView.new.display_house(15)
 # HouseGameView.new.display_house(16)
 
-HouseGameController.new.pigs_build
-
-GameController.new(hash)
+hgc = HouseGameController.new
+hgc.wolf_blows(8)
+hgc.pigs_build

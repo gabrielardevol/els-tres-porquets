@@ -3,18 +3,25 @@ require_relative "house_game_view"
 class HouseGameController < GameController
   def initialize
     @view = HouseGameView.new
+    @n = 23
   end
 
   def pigs_build
-    n = 0
     time1 = Time.now
     time2 = nil
-    until time2.to_i - time1.to_i >= 3
-      time2 = Time.new
+    until time2.to_i - time1.to_i >= 10
       gets.chomp
-      n +=1
+      time2 = Time.new
+      @n += 0.1
+      @view.display_house(@n.to_i)
     end
-    @view.display_house(n)
-    p n
+  end
+
+  def wolf_blows(less_bricks)
+    less_bricks.times do
+      @view.display_house(@n)
+      @n -= 1
+      sleep(0.5)
+    end
   end
 end

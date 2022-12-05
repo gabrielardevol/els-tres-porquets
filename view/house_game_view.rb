@@ -1,5 +1,6 @@
 require_relative "game_view"
 class HouseGameView < GameView
+
   def display_house(n)
     n = n.to_i
     row6 = "     🧱"
