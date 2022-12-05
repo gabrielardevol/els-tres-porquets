@@ -7,10 +7,10 @@ class HouseGameView < GameView
     @row4 = " 🧱🧱🧱🧱🧱"
     @row3 = "🧱🧱🧱🧱🧱🧱"
     @row2 = "🧱🧱    🧱🧱"
-    @row1 = "#{display_wolf()}🧱🧱🐷🐷🧱🧱"
+    @row1 = "🧱🧱🐷🐷🧱🧱"
 
     @margin = (" " * 10)
-    @wolf = "#{@margin[0...-2]}"
+    @wolf = "#{@margin[0...-2]}#{display_wolf()}"
   end
 
   def display_wolf
@@ -36,12 +36,12 @@ class HouseGameView < GameView
   end
 
   def fractioned_row(n)
-    n == 7 ? puts("#{@wolf}     🧱    🧱🧱") : nil
-    n == 6 ? puts("#{@wolf}           🧱🧱") : nil
-    n == 5 ? puts("#{@wolf}             🧱") : nil
-    n == 3 ? puts("#{@wolf}     🧱🐷🐷🧱🧱") : nil
-    n == 2 ? puts("#{@wolf}       🐷🐷🧱🧱") : nil
-    n == 1 ? puts("#{@wolf}       🐷🐷  🧱") : nil
-    n == 0 ? puts("#{@wolf}       🐷🐷    ") : nil
+    n == 7 ? puts("#{@margin}   🧱    🧱🧱") : nil
+    n == 6 ? puts("#{@margin}         🧱🧱") : nil
+    n == 5 ? puts("#{@margin}           🧱") : nil
+    n == 3 ? puts("#{@wolf}   🧱🐷🐷🧱🧱") : nil
+    n == 2 ? puts("#{@wolf}     🐷🐷🧱🧱") : nil
+    n == 1 ? puts("#{@wolf}     🐷🐷  🧱") : nil
+    n == 0 ? puts("#{@wolf}     🐷🐷    ") : nil
   end
 end
