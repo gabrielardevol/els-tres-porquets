@@ -13,6 +13,26 @@ class HouseGameView < GameView
     @wolf = "🐺#{@margin[0...-2]}"
   end
 
+  def wolf_animation(n)
+    # p n
+    # p margin = @margin
+    # n.times do
+    #   margin = "💨" + margin[0...-2]
+    # p margin
+    # end
+    margin = @margin[0...-2]
+    margin[-1] == "💨" ? puts("yes") : puts("no")
+    wa1 = "💨      "
+    wa2 = "💨💨    "
+    wa3 = "💨💨💨  "
+    wa4 = "💨💨💨💨"
+    wa5 = "  💨💨💨"
+    wa6 = "    💨💨"
+    wa7 = "      💨"
+
+  end
+
+
   def display_house(n)
     # p n
     n = n.to_i
