@@ -18,7 +18,7 @@ class HouseGameView < GameView
     # p margin = @margin
     # n.times do
     #   margin = "💨" + margin[0...-2]
-    # p margin
+    # p mar gin
     # end
     margin = @margin[0...-2]
     margin[-1] == "💨" ? puts("yes") : puts("no")
