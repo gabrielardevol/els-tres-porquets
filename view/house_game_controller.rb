@@ -9,10 +9,11 @@ class HouseGameController < GameController
   def pigs_build
     time1 = Time.now
     time2 = nil
-    until time2.to_i - time1.to_i >= 10
+    until time2.to_i - time1.to_i >= 3
       gets.chomp
       time2 = Time.new
-      @n += 0.1
+      @n += 1
+      @n > 23 ? @n = 23 : nil
       @view.display_house(@n.to_i)
     end
   end
@@ -21,7 +22,9 @@ class HouseGameController < GameController
     less_bricks.times do
       @view.display_house(@n)
       @n -= 1
+      @n <= 0 ? puts("wolf wins") : nil
       sleep(0.5)
     end
+    pigs_build
   end
 end

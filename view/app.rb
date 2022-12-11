@@ -40,5 +40,9 @@ hash = {
 # HouseGameView.new.display_house(16)
 
 hgc = HouseGameController.new
-hgc.wolf_blows(24)
+number = 3
+5.times do
+  hgc.wolf_blows(number)
+  number += 3
+end
 #hgc.pigs_build

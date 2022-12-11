@@ -36,7 +36,7 @@ class HouseGameView < GameView
   def display_house(n)
     # p n
     n = n.to_i
-
+    puts "top"
     puts n >= 23 ? ("#{@margin} #{@row6}") : nil
     puts n >= 22 ? ("#{@margin} #{@row5}") : nil
     n > 19 && n < 22 ? puts(@margin + " "*(10-((n-19)*2)) + "🧱"*(n - 19)) : nil
@@ -49,15 +49,17 @@ class HouseGameView < GameView
     n > 4 && n < 8 ? fractioned_row(n) : nil
     puts n >= 4 ? ("#{@wolf} #{@row1}") : nil
     n < 4 ? fractioned_row(n) : nil
+
+    puts "Total bricks: #{n}"
   end
 
   def fractioned_row(n)
-    n == 7 ? puts("#{@margin}   🧱    🧱🧱") : nil
-    n == 6 ? puts("#{@margin}         🧱🧱") : nil
-    n == 5 ? puts("#{@margin}           🧱") : nil
-    n == 3 ? puts("#{@wolf}   🧱🐷🐷🧱🧱") : nil
-    n == 2 ? puts("#{@wolf}     🐷🐷🧱🧱") : nil
-    n == 1 ? puts("#{@wolf}     🐷🐷  🧱") : nil
-    n == 0 ? puts("#{@wolf}     🐷🐷    ") : nil
+    n == 7 ? puts("#{@margin}   🧱    🧱🧱") : puts("")
+    n == 6 ? puts("#{@margin}         🧱🧱") : puts("")
+    n == 5 ? puts("#{@margin}           🧱") : puts("")
+    n == 3 ? puts("#{@wolf}   🧱🐷🐷🧱🧱") : puts("")
+    n == 2 ? puts("#{@wolf}     🐷🐷🧱🧱") : puts("")
+    n == 1 ? puts("#{@wolf}     🐷🐷  🧱") : puts("")
+    n == 0 ? puts("#{@wolf}     🐷🐷    ") : puts("")
   end
 end
