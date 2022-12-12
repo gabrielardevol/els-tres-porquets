@@ -1,8 +1,8 @@
-require_relative "game_controller.rb"
-require_relative "house_game_view"
-class HouseGameController < GameController
+require_relative "../game_controller.rb"
+require_relative "hiding_game_view"
+class HidingGameController < GameController
   def initialize
-    @view = HouseGameView.new
+    @view = HidingGameView.new
     @n = 23
   end
 
@@ -14,13 +14,13 @@ class HouseGameController < GameController
       time2 = Time.new
       @n += 1
       @n > 23 ? @n = 23 : nil
-      @view.display_house(@n.to_i)
+      @view.display_hiding(@n.to_i)
     end
   end
 
   def wolf_blows(less_bricks)
     less_bricks.times do
-      @view.display_house(@n)
+      @view.display_hiding(@n)
       @n -= 1
       @n <= 0 ? puts("wolf wins") : nil
       sleep(0.5)

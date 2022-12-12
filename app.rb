@@ -1,5 +1,4 @@
-require_relative 'game_controller'
-require_relative 'house_game_controller'
+require_relative 'hiding_game/hiding_game_controller'
 require_relative 'text_display_view'
 require_relative 'image_repository'
 
@@ -18,28 +17,28 @@ image_repository = ImageRepository.new
 hash = {
   start_distance: 0,
   wolf_to_pig_distance: 20,
-  pig_to_house_distance: 80,
+  pig_to_hiding_distance: 80,
   game_duration: 11.95
 }
 
-# HouseGameView.new.display_house(1)
-# HouseGameView.new.display_house(2)
-# HouseGameView.new.display_house(3)
-# HouseGameView.new.display_house(4)
-# HouseGameView.new.display_house(5)
-# HouseGameView.new.display_house(6)
-# HouseGameView.new.display_house(7)
-# HouseGameView.new.display_house(8)
-# HouseGameView.new.display_house(9)
-# HouseGameView.new.display_house(10)
-# HouseGameView.new.display_house(11)
-# HouseGameView.new.display_house(12)
-# HouseGameView.new.display_house(13)
-# HouseGameView.new.display_house(14)
-# HouseGameView.new.display_house(15)
-# HouseGameView.new.display_house(16)
+# hidingGameView.new.display_hiding(1)
+# hidingGameView.new.display_hiding(2)
+# hidingGameView.new.display_hiding(3)
+# hidingGameView.new.display_hiding(4)
+# hidingGameView.new.display_hiding(5)
+# hidingGameView.new.display_hiding(6)
+# hidingGameView.new.display_hiding(7)
+# hidingGameView.new.display_hiding(8)
+# hidingGameView.new.display_hiding(9)
+# hidingGameView.new.display_hiding(10)
+# hidingGameView.new.display_hiding(11)
+# hidingGameView.new.display_hiding(12)
+# hidingGameView.new.display_hiding(13)
+# hidingGameView.new.display_hiding(14)
+# hidingGameView.new.display_hiding(15)
+# hidingGameView.new.display_hiding(16)
 
-hgc = HouseGameController.new
+hgc = HidingGameController.new
 number = 3
 5.times do
   hgc.wolf_blows(number)

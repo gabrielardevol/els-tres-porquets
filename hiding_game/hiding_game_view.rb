@@ -1,5 +1,5 @@
-require_relative "game_view"
-class HouseGameView < GameView
+require_relative "../game_view"
+class HidingGameView < GameView
 
   def initialize
     @row6 = "     🧱"
@@ -33,33 +33,33 @@ class HouseGameView < GameView
   end
 
 
-  def display_house(n)
+  def display_hiding(n)
     # p n
     n = n.to_i
     puts "top"
-    puts n >= 23 ? ("#{@margin} #{@row6}") : nil
-    puts n >= 22 ? ("#{@margin} #{@row5}") : nil
+     n >= 23 ? puts("#{@margin} #{@row6}") : nil
+     n >= 22 ? puts("#{@margin} #{@row5}") : nil
     n > 19 && n < 22 ? puts(@margin + " "*(10-((n-19)*2)) + "🧱"*(n - 19)) : nil
-    puts n >= 19 ? ("#{@margin} #{@row4}") : nil
+     n >= 19 ? puts("#{@margin} #{@row4}") : nil
     n > 14 && n < 19 ? puts(@margin + " "*(12-((n-14)*2)) + "🧱"*(n - 14)) : nil
-    puts n >= 14 ? ("#{@margin} #{@row3}") : nil
+     n >= 14 ? puts("#{@margin} #{@row3}") : nil
     n > 8 && n < 14 ? puts(@margin + " "*(13-((n-8)*2)) + "🧱"*(n - 8)) : nil
     # n > 8 ? fractioned_row(n) : nil
-    puts n >= 8 ? ("#{@margin} #{@row2}") : nil
+     n >= 8 ? puts("#{@margin} #{@row2}") : nil
     n > 4 && n < 8 ? fractioned_row(n) : nil
-    puts n >= 4 ? ("#{@wolf} #{@row1}") : nil
+     n >= 4 ? puts("#{@wolf} #{@row1}") : nil
     n < 4 ? fractioned_row(n) : nil
 
     puts "Total bricks: #{n}"
   end
 
   def fractioned_row(n)
-    n == 7 ? puts("#{@margin}   🧱    🧱🧱") : puts("")
-    n == 6 ? puts("#{@margin}         🧱🧱") : puts("")
-    n == 5 ? puts("#{@margin}           🧱") : puts("")
-    n == 3 ? puts("#{@wolf}   🧱🐷🐷🧱🧱") : puts("")
-    n == 2 ? puts("#{@wolf}     🐷🐷🧱🧱") : puts("")
-    n == 1 ? puts("#{@wolf}     🐷🐷  🧱") : puts("")
-    n == 0 ? puts("#{@wolf}     🐷🐷    ") : puts("")
+    n == 7 ? puts("#{@margin}   🧱    🧱🧱") : nil
+    n == 6 ? puts("#{@margin}         🧱🧱") : nil
+    n == 5 ? puts("#{@margin}           🧱") : nil
+    n == 3 ? puts("#{@wolf}   🧱🐷🐷🧱🧱") : nil
+    n == 2 ? puts("#{@wolf}     🐷🐷🧱🧱") : nil
+    n == 1 ? puts("#{@wolf}     🐷🐷  🧱") : nil
+    n == 0 ? puts("#{@wolf}     🐷🐷    ") : nil
   end
 end
