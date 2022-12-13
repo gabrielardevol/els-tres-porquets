@@ -10,7 +10,7 @@ class HidingGameView < GameView
     @row1 = "🧱🧱🐷🐷🧱🧱"
 
     @margin = (" " * 10)
-    @wolf = "🐺#{@margin[0...-2]}"
+    @wolf = "🐺#{@margin[0...-6]}#{wolf_animation(5)}"
   end
 
   def wolf_animation(n)
@@ -22,34 +22,28 @@ class HidingGameView < GameView
     # end
     margin = @margin[0...-2]
     margin[-1] == "💨" ? puts("yes") : puts("no")
-    wa1 = "💨      "
-    wa2 = "💨💨    "
-    wa3 = "💨💨💨  "
-    wa4 = "💨💨💨💨"
-    wa5 = "  💨💨💨"
-    wa6 = "    💨💨"
-    wa7 = "      💨"
-
+    wa1 = "💨    "
+    wa2 = "💨💨  "
+    wa3 = "💨💨💨"
+    wa4 = "  💨💨"
+    wa5 = "    💨"
+    return "test"
   end
 
-
   def display_hiding(n)
-    # p n
     n = n.to_i
     puts "top"
-     n >= 23 ? puts("#{@margin} #{@row6}") : nil
-     n >= 22 ? puts("#{@margin} #{@row5}") : nil
+    n >= 23 ? puts("#{@margin} #{@row6}") : nil
+    n >= 22 ? puts("#{@margin} #{@row5}") : nil
     n > 19 && n < 22 ? puts(@margin + " "*(10-((n-19)*2)) + "🧱"*(n - 19)) : nil
-     n >= 19 ? puts("#{@margin} #{@row4}") : nil
+    n >= 19 ? puts("#{@margin} #{@row4}") : nil
     n > 14 && n < 19 ? puts(@margin + " "*(12-((n-14)*2)) + "🧱"*(n - 14)) : nil
-     n >= 14 ? puts("#{@margin} #{@row3}") : nil
+    n >= 14 ? puts("#{@margin} #{@row3}") : nil
     n > 8 && n < 14 ? puts(@margin + " "*(13-((n-8)*2)) + "🧱"*(n - 8)) : nil
-    # n > 8 ? fractioned_row(n) : nil
-     n >= 8 ? puts("#{@margin} #{@row2}") : nil
+    n >= 8 ? puts("#{@margin} #{@row2}") : nil
     n > 4 && n < 8 ? fractioned_row(n) : nil
-     n >= 4 ? puts("#{@wolf} #{@row1}") : nil
+    n >= 4 ? puts("#{@wolf} #{@row1}") : nil
     n < 4 ? fractioned_row(n) : nil
-
     puts "Total bricks: #{n}"
   end
 
