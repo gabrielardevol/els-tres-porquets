@@ -8,26 +8,21 @@ class HidingGameView < GameView
     @row3 = "🧱🧱🧱🧱🧱🧱"
     @row2 = "🧱🧱    🧱🧱"
     @row1 = "🧱🧱🐷🐷🧱🧱"
-
     @margin = (" " * 10)
-    @wolf = "🐺#{@margin[0...-6]}#{wolf_animation(5)}"
+    @wolf = "🐺#{blow(3)}"#{@margin[0...-2]}
   end
 
-  def wolf_animation(n)
-    # p n
-    # p margin = @margin
-    # n.times do
-    #   margin = "💨" + margin[0...-2]
-    # p mar gin
-    # end
-    margin = @margin[0...-2]
-    margin[-1] == "💨" ? puts("yes") : puts("no")
-    wa1 = "💨    "
-    wa2 = "💨💨  "
-    wa3 = "💨💨💨"
-    wa4 = "  💨💨"
-    wa5 = "    💨"
-    return "test"
+  def blow(n)
+
+#margin = @margin[0...-2]
+# margin[-1] == "💨" ? puts("yes") : puts("no")
+
+"💨"
+#puts "💨💨  "
+#(n-3).times puts "💨💨💨"
+#puts "  💨💨"
+#puts "    💨"
+#puts n
   end
 
   def display_hiding(n)
