@@ -4,7 +4,8 @@ require_relative "wolf_animation"
 class HidingGameView < GameView
 
   def initialize
-    @blown = Animation.new
+
+    @animation = Animation.new
 
     @row6 = "     🧱"
     @row5 = "   🧱🧱🧱"
@@ -12,12 +13,13 @@ class HidingGameView < GameView
     @row3 = "🧱🧱🧱🧱🧱🧱"
     @row2 = "🧱🧱    🧱🧱"
     @row1 = "🧱🧱🐷🐷🧱🧱"
-    @margin = (" " * 10)
-    @wolf = "🐺#{blow(3)}"#{@margin[0...-2]}
+    @margin = (" " * 12)
+    @wolf = "🐺"+ @animation.arrays_array
+
   end
 
-  def blow(n)
-    "💨"
+  def blow(frame = 5, blown = 5, margin = 5)
+
   end
 
   def display_hiding(n)
