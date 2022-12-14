@@ -1,17 +1,37 @@
 class House
   attr_accessor :row1, :row2, :row3, :row4, :row5, :row6
   def initialize
-
-    @row6 = "     🧱"
-    @row5 = "   🧱🧱🧱"
     @row4 = " 🧱🧱🧱🧱🧱"
     @row3 = "🧱🧱🧱🧱🧱🧱"
     @row2 = "🧱🧱    🧱🧱"
     @row1 = "🧱🧱🐷🐷🧱🧱"
     @margin = (" " * 12)
     @wolf = "🐺"
-
   end
+
+  def row6(number)
+    case number
+    when 23
+      "     🧱"
+    else
+      "       "
+    end
+  end
+
+  def row5(number)
+    case number
+    when 22..23
+      "   🧱🧱🧱"
+    when 21
+      "     🧱🧱"
+    when 20
+      "       🧱"
+    else
+      "         "
+    end
+  end
+
+  def row4(number)
 
   def blow(frame = 5, blown = 5, margin = 5)
     # @animation.arrays_array(5)
