@@ -1,50 +1,40 @@
 class Animation
 
-  def initialize(n = 3, margin = 6, frame = 1)
+  def initialize(frame, n = 8, margin = 6)
     @margin = margin
     @n = n
     case frame
-    when 0..(n-1)
+    when 0..(margin-1)
       p self.first[frame]
-    when n..(margin-1)
-      p self.second[frame - margin]
-    when margin..99
-      p self.third[frame - margin]
+    when margin..(n-1)
+      p self.second
+    else
+      p self.third[frame - n]
     end
   end
 
   def first
     array = []
     @emojis = 1
-    @n.times do
-      array << ("💨" * @emojis) + ("  " * (@margin - @emojis))
+    @margin.times do
+      @margin -= 1
+      array << ("💨" * @emojis) + ("  " * (@margin))
       @emojis += 1
     end
     array
   end
 
   def second
-    @emojis = @n
-    @margin_L = 1
-    @margin_R = @margin - @margin_L - @emojis
-
-    array = []
-
-    (@margin - @n).times do
-      array << ("  " * @margin_L) + ("💨" * @emojis) + ("  " * @margin_R)
-      @margin_L += 1
-      @margin_R -= 1
-    end
-    array
+    return("💨" * @margin)
   end
 
   def third
-    @emojis = @n - 1
-    @margin_L = @margin - @emojis
+    @emojis = @n
+    @margin_L = 1
     array = []
 
     (@n-1).times do
-      array << ("  " * @margin_L) + ("💨" * @emojis)
+      array << (("  " * @margin_L ) + ("💨" * @emojis))[0..(@margin-@n-2)]
       @margin_L += 1
       @emojis -= 1
     end
@@ -52,12 +42,11 @@ class Animation
   end
 end
 
-
-Animation.new(2,5,0)
-Animation.new(2,5,1)
-Animation.new(2,5,2)
-Animation.new(2,5,3)
-Animation.new(2,5,4)
-Animation.new(2,5,5)
-Animation.new(2,5,6)
-Animation.new(2,5,7)
+n = 2
+margin = 5
+frame = 0
+times = n + margin - 1
+times.times do
+  Animation.new(frame, n, margin)
+  frame += 1
+end
