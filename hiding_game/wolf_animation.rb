@@ -1,59 +1,43 @@
 class Animation
-
-  def initialize(frame, n = 2, margin = 5)
+  def initialize(frame, blown = 7, margin = 5)
     @margin = margin
-    @n = n
+    @blown = blown
     @frame = frame
-    case frame
-    when 0..(n)
-      p "#{self.first[frame]}| first"
-    when n+1..(n+margin)
-      p "#{self.second}| second"
-    else
-      p "#{self.third[0]}| third"
-    end
+    arrays_array
   end
 
-  def first
-    array = []
-    @emojis = 0
-    @margin.times do
-      array << ("💨" * @emojis) + ("  " * (@margin))
-      @margin -= 1
-      @emojis += 1
+  def arrays_array
+    blank = "  "
+    blow = "💨"
+    left_margin = 0
+    super_array = []
+
+    (@blown + @margin + 1).times do
+      array = []
+
+      left_margin.times do
+        array << "  "
+      end
+
+      @blown.times do
+        array << "💨"
+      end
+
+      (@margin+@blown).times do
+        array << "  "
+      end
+
+      left_margin += 1
+
+      super_array << array[@blown..(@margin + @blown - 1)].join
     end
-    array
-  end
 
-  def second
-    if @n > @margin
-      return("💨" * @margin)
-    else
-      margin = @frame - @n
-      return("  "*margin + "💨" * @n + "  "*(@margin-@n-margin))
-
-    end
-  end
-
-  def third
-    @n
-    @margin_L = 1
-    array = []
-
-    (@n).times do
-      string = "  " * (@margin - @margin_L)  +("💨" * @n)
-      array << string[0..-1]
-      @margin_L -= 1
-    end
-    return array
+    p super_array[@frame]
   end
 end
 
-n = 2
-margin = 5
 frame = 0
-times = n + margin + 1
-times.times do
-  Animation.new(frame, n, margin)
+15.times do
+  Animation.new(frame)
   frame += 1
 end
