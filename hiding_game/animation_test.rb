@@ -1,7 +1,4 @@
 class Animation
-  def initialize
-  end
-
 
   def animate(n, margin)
     margin_L = 0
