@@ -9,26 +9,28 @@ class Animation
     margin_R = margin - emojis
 
     n.times do
-      # p ("💨" * number1) + ("  " * (n - number1))
       p ("💨" * emojis) + ("  " * (margin - emojis))
       emojis += 1
     end
 
     emojis -= 1
+    margin_L = 1
+    margin_R = margin - margin_L - emojis
 
     (margin - n).times do
-      margin_L += 1
       p ("  " * margin_L) + ("💨" * emojis) + ("  " * margin_R)
+      margin_L += 1
+      margin_R -= 1
     end
 
-   # n.times do
-#
-#     p ("  "*number2 + "💨"*number1 + "  "*number3)
-#     number3.negative? ? number3 = 0 : nil
-#    end
+    emojis -= 1
+
+    (n-1).times do
+      p ("  " * margin_L) + ("💨" * emojis)
+      margin_L += 1
+      emojis -= 1
+    end
   end
 end
 
-# Animation.new.animate(5, 5)
-Animation.new.animate(3, 5)
-#Animation.new.animate(2, 5)
+Animation.new.animate(1, 9)
