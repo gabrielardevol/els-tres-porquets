@@ -1,11 +1,6 @@
-require_relative "../game_view"
-require_relative "wolf_animation"
-
-class HidingGameView < GameView
-
+class House
+  attr_accessor :row1, :row2, :row3, :row4, :row5, :row6
   def initialize
-
-    @animation = Animation.new
 
     @row6 = "     🧱"
     @row5 = "   🧱🧱🧱"
@@ -14,15 +9,15 @@ class HidingGameView < GameView
     @row2 = "🧱🧱    🧱🧱"
     @row1 = "🧱🧱🐷🐷🧱🧱"
     @margin = (" " * 12)
-    @wolf = "🐺"+ self.blow
+    @wolf = "🐺"
 
   end
 
   def blow(frame = 5, blown = 5, margin = 5)
-    @animation.arrays_array(5)
+    # @animation.arrays_array(5)
   end
 
-  def display_hiding(n)
+  def display_house(n)
     n = n.to_i
     puts "top"
     n >= 23 ? puts("#{@margin} #{@row6}") : nil

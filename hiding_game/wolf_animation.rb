@@ -1,5 +1,5 @@
 class Animation
-  def initialize(blown = 7, margin = 5)
+  def initialize(blown = 3, margin = 5)
     @margin = margin
     @blown = blown
     arrays_array

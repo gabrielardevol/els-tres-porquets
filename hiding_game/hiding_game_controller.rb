@@ -21,15 +21,24 @@ class HidingGameController < GameController
     end
   end
 
-  def wolf_blows(less_bricks)
-    less_bricks.times do
+  def wolf_blows(number)
+    n = 0
+    number.times do
+     @view.blow(n)
+     n += 1
+    end
+    quit_bricks(number)
+    pigs_build
+  end
+
+  def quit_bricks(number)
+    number.times do
       @n < 0 ? @n = 0 : nil
       @view.display_hiding(@n)
       @n -= 1
       @n == 0 ? puts("wolf wins") : nil
-      @view.blow(less_bricks)
+      @view.blow(number)
       sleep(0.35)
     end
-    pigs_build
   end
 end
