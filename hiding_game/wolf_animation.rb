@@ -6,11 +6,11 @@ class Animation
     @frame = frame
     case frame
     when 0..(n)
-      p self.first[frame]
-    when n+1..(n+margin-1)
-      p self.second
+      p "#{self.first[frame]}| first"
+    when n+1..(n+margin)
+      p "#{self.second}| second"
     else
-      p self.third[frame - n]
+      p "#{self.third[0]}| third"
     end
   end
 
@@ -30,29 +30,29 @@ class Animation
       return("💨" * @margin)
     else
       margin = @frame - @n
-      return("  "*margin + "💨" * @n)
+      return("  "*margin + "💨" * @n + "  "*(@margin-@n-margin))
 
     end
   end
 
   def third
-    @emojis = @n
+    @n
     @margin_L = 1
     array = []
 
-    (@n-1).times do
-      array << (("  " * @margin_L ) + ("💨" * @emojis))[0..(@margin-@n-2)]
-      @margin_L += 1
-      @emojis -= 1
+    (@n).times do
+      string = "  " * (@margin - @margin_L)  +("💨" * @n)
+      array << string[0..-1]
+      @margin_L -= 1
     end
-    array
+    return array
   end
 end
 
 n = 2
 margin = 5
 frame = 0
-times = n + margin - 1
+times = n + margin + 1
 times.times do
   Animation.new(frame, n, margin)
   frame += 1
