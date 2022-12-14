@@ -1,7 +1,10 @@
 require_relative "../game_view"
+require_relative "wolf_animation"
 class HidingGameView < GameView
 
   def initialize
+    @blown =
+
     @row6 = "     🧱"
     @row5 = "   🧱🧱🧱"
     @row4 = " 🧱🧱🧱🧱🧱"
