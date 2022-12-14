@@ -1,12 +1,13 @@
 class Animation
 
-  def initialize(frame, n = 8, margin = 6)
+  def initialize(frame, n = 2, margin = 5)
     @margin = margin
     @n = n
+    @frame = frame
     case frame
-    when 0..(margin-1)
+    when 0..(n)
       p self.first[frame]
-    when margin..(n-1)
+    when n+1..(n+margin-1)
       p self.second
     else
       p self.third[frame - n]
@@ -15,17 +16,23 @@ class Animation
 
   def first
     array = []
-    @emojis = 1
+    @emojis = 0
     @margin.times do
-      @margin -= 1
       array << ("💨" * @emojis) + ("  " * (@margin))
+      @margin -= 1
       @emojis += 1
     end
     array
   end
 
   def second
-    return("💨" * @margin)
+    if @n > @margin
+      return("💨" * @margin)
+    else
+      margin = @frame - @n
+      return("  "*margin + "💨" * @n)
+
+    end
   end
 
   def third
