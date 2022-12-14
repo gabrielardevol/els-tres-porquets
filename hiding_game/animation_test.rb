@@ -1,32 +1,34 @@
 class Animation
   def initialize
-    @animation = false
   end
 
+
   def animate(n, margin)
-    @animation = true
-    number1 = 1
+    margin_L = 0
+    emojis = 1
+    margin_R = margin - emojis
+
     n.times do
       # p ("💨" * number1) + ("  " * (n - number1))
-      p ("💨" * number1) + ("  " * (margin - number1))
-      number1 += 1
+      p ("💨" * emojis) + ("  " * (margin - emojis))
+      emojis += 1
     end
 
-    number1 -= 1
-    number2 = 1
+    emojis -= 1
 
-    crop = 2
-    n.times do
-
-     p ("  "*number2 + "💨"*number1)[0..-(number2+1)]
-     number2 += 1
-     crop += 1
+    (margin - n).times do
+      margin_L += 1
+      p ("  " * margin_L) + ("💨" * emojis) + ("  " * margin_R)
     end
 
-    @animation = false
+   # n.times do
+#
+#     p ("  "*number2 + "💨"*number1 + "  "*number3)
+#     number3.negative? ? number3 = 0 : nil
+#    end
   end
 end
 
-Animation.new.animate(5, 5)
+# Animation.new.animate(5, 5)
 Animation.new.animate(3, 5)
-Animation.new.animate(2, 5)
+#Animation.new.animate(2, 5)
