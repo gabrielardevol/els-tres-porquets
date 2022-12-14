@@ -13,16 +13,7 @@ class HidingGameView < GameView
   end
 
   def blow(n)
-
-#margin = @margin[0...-2]
-# margin[-1] == "💨" ? puts("yes") : puts("no")
-
-"💨"
-#puts "💨💨  "
-#(n-3).times puts "💨💨💨"
-#puts "  💨💨"
-#puts "    💨"
-#puts n
+    "💨"
   end
 
   def display_hiding(n)
