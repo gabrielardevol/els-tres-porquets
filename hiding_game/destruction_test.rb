@@ -4,13 +4,11 @@ require_relative "house_animation"
 #class HidingGameView
 n = 23
 
-margin = 5
+sleeptime = 0.15
 
-
-
-blown = 3
-
-1.times do
+2.times do
+  margin = 16
+  blown = 6
   array = []
   frame = 0
 
@@ -22,17 +20,23 @@ blown = 3
     end
     puts array[frame] + House.new(n).array[-1]
     frame += 1
+    sleep(sleeptime)
   end
 
-  puts "*"*10
-
+  array = []
+  n -= 1
 
   blown.times do
-    n -= 1
-    House.new(n).array.each do |row|
+    House.new(n).array[0..-2].each do |row|
       puts "  "*margin + row
     end
+  puts Animation.new(blown, margin).arrays_array(frame) + House.new(n).array[-1]
+  sleep(sleeptime)
+
+  n -= 1
+  frame += 1
   end
+
   blown += 2
 end
 
