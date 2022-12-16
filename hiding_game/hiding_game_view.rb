@@ -55,6 +55,14 @@ class HidingGameView
     end
   end
 
+  def display_scene(n)
+    House.new(n).array[0..-2].each do |row|
+      puts "  "*(@margin + 1) + row
+    end
+    puts "🐺" + "  " * @margin + House.new(@n).array[-1]
+
+  end
+
 end
 
 # HidingGameView.new
