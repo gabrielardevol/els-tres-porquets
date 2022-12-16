@@ -97,7 +97,7 @@ class House
       "    🐷🐷🧱🧱"
     when 1
       "    🐷🐷  🧱"
-    when 0
+    else
       "    🐷🐷    "
     end
   end
