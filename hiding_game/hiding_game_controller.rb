@@ -17,25 +17,29 @@ class HidingGameController
   def run_game(number)
     until @n <= 0 do
     self.wolf_blows(number, @n)
+    @n = @n - number
     @n > 0 ? self.pigs_build : nil
     end
   end
 
   def wolf_blows(number, bricks_left)
-    @view.blow_animation_1(number)
-    @view.blow_animation_2(number)
-    return @n = @n - number
+    HidingGameView.new(bricks_left).blow_animation_1(number)
+    puts bricks_left
+    puts number
+    #HidingGameView.new(bricks_left).blow_animation_2(number)
+    # return @n = @n - number
   end
 
   def pigs_build
+    puts "pigs build"
     time1 = Time.now
     time2 = nil
     until time2.to_i - time1.to_i >= @building_timelapse
       time2 = Time.new
       @view.display_scene(@n)
-      @n > 23 ? @n = 23 : nil
       gets.chomp
       @n += 1
+      @n > 23 ? @n = 23 : nil
     end
     return @n
   end
@@ -53,5 +57,6 @@ class HidingGameController
   # end
 end
 
-HidingGameController.new.display_scene
-HidingGameController.new.run_game(3)
+hgc = HidingGameController.new
+hgc.run_game(10)
+hgc.display_scene
