@@ -1,3 +1,4 @@
+
 class Animation
   def initialize(blown = 3, margin = 5)
     @margin = margin
@@ -5,6 +6,8 @@ class Animation
     arrays_array
   end
 
+  # this method returns to the view an array of arrays
+  # with the blowing emoji
   def arrays_array(frame = 5)
     blank = "  "
     blow = "💨"
@@ -33,10 +36,3 @@ class Animation
 
     super_array[frame]
   end
-end
-
-# frame = 0
-# 15.times do
-#   Animation.new(frame)
-#   frame += 1
-# end

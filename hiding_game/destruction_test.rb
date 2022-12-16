@@ -1,75 +1,58 @@
 require_relative "wolf_animation"
 require_relative "house_animation"
 
-#class HidingGameView
-n = 23
+class HidingGameView
+  def initialize
+    @n = 23
+    @sleeptime = 0.1
+    @blown = 2
+    @margin = 10
 
-sleeptime = 0.1
+    5.times do
+      self.blow_animation_1
 
-blown = 2
-5.times do
-  margin = 16
-  array = []
-  frame = 0
+      @array = [] #reset array
+      @n -= 1
 
-  (margin+1).times do
-    array << "#{Animation.new(blown, margin).arrays_array(frame)}"
+      self.blow_animation_2
 
-    House.new(n).array[0..-2].each do |row|
-      puts "  "*margin + row
+      @blown += 2
     end
-    puts array[frame] + House.new(n).array[-1]
-    frame += 1
-    sleep(sleeptime)
   end
 
-  array = []
-  n -= 1
-
-  blown.times do
+  def house_rows65432(n)
     House.new(n).array[0..-2].each do |row|
-      puts "  "*margin + row
+      puts "  "*(@margin + 1) + row
     end
-    puts Animation.new(blown, margin).arrays_array(frame) + House.new(n).array[-1]
-    sleep(sleeptime)
-
-    n > 0 ? n -= 1 : nil
-    frame += 1
   end
 
-  blown += 2
+  def blow_animation_1
+    @array = []
+    @frame = 0
+
+    (@margin + 1).times do
+      @array << Animation.new(@blown, @margin).arrays_array(@frame)
+
+      house_rows65432(@n)
+      puts "🐺" + @array[@frame] + House.new(@n).array[-1]
+      sleep(@sleeptime)
+
+      @frame += 1
+    end
+  end
+
+  def blow_animation_2
+
+    @blown.times do
+      house_rows65432(@n)
+      puts "🐺" + Animation.new(@blown, @margin).arrays_array(@frame) + House.new(@n).array[-1]
+      sleep(@sleeptime)
+
+      @n > 0 ? @n -= 1 : nil
+      @frame += 1
+    end
+  end
+
 end
 
-# n = 0
-# array = []
-# (margin + blown + 1).times do
-#   array << "#{Animation.new(blown, margin).arrays_array(n)}"
-#   n += 1
-# end
-
-# frame = 0
-
-# (margin + 1).times do
-#   p "  "*margin + house.row6(23)
-#   p "  "*margin + house.row5(23)
-#   p "  "*margin + house.row4(23)
-#   p "  "*margin + house.row3(23)
-#   p "  "*margin + house.row2(23)
-#   p array[frame] + house.row1(23)
-#   frame += 1
-#   sleep(0.5)
-
-# end
-
-# bricks = 23
-# (blown).times do
-#   bricks -=1
-#   p "  "*margin + house.row6(bricks)
-#   p "  "*margin + house.row5(bricks)
-#   p "  "*margin + house.row4(bricks)
-#   p "  "*margin + house.row3(bricks)
-#   p "  "*margin + house.row2(bricks)
-#   p array[frame] + house.row1(bricks)
-#   frame += 1
-#   sleep(0.5)
-# end
+HidingGameView.new
