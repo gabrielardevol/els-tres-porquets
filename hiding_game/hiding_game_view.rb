@@ -6,7 +6,7 @@ class HidingGameView
     @n = n
     @sleeptime = 0.1
     #@blown = 2
-    @margin = 10
+    @margin = 5
   end
 
   def running(blown = 5)
