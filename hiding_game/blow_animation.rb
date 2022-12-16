@@ -1,5 +1,5 @@
 
-class Animation
+class BlowAnimation
   def initialize(blown = 3, margin = 5)
     @margin = margin
     @blown = blown
@@ -36,3 +36,4 @@ class Animation
 
     super_array[frame]
   end
+end

@@ -1,11 +1,11 @@
-require_relative "../game_controller.rb"
+# require_relative "../game_controller.rb"
 require_relative "hiding_game_view"
-require_relative "wolf_animation"
+# require_relative "wolf_animation"
 
-class HidingGameController < GameController
+class HidingGameController
 
   def initialize
-    @view = HidingGameView.new
+    @view = HidingGameView.new.running(3)
     @n = 23
   end
 
@@ -42,3 +42,5 @@ class HidingGameController < GameController
     end
   end
 end
+
+HidingGameController.new
