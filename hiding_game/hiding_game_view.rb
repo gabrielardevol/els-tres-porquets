@@ -2,8 +2,8 @@ require_relative "blow_animation"
 require_relative "house_animation"
 
 class HidingGameView
-  def initialize
-    @n = 23
+  def initialize(n = 23)
+    @n = n
     @sleeptime = 0.1
     #@blown = 2
     @margin = 10

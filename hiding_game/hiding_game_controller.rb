@@ -5,31 +5,41 @@ require_relative "hiding_game_view"
 class HidingGameController
 
   def initialize
-    @view = HidingGameView.new.display_scene(20)
+    @view = HidingGameView.new
     @n = 23
+    @building_timelapse = 3
   end
 
-  # def pigs_build
-  #   time1 = Time.now
-  #   time2 = nil
-  #   until time2.to_i - time1.to_i >= 3
-  #     gets.chomp
-  #     time2 = Time.new
-  #     @n += 1
-  #     @n > 23 ? @n = 23 : nil
-  #     @view.display_hiding(@n.to_i)
-  #   end
-  # end
+  def display_scene
+    @view.display_scene(@n)
+  end
 
-  # def wolf_blows(number)
-  #   n = 0
-  #   number.times do
-  #    @view.blow(n)
-  #    n += 1
-  #   end
-  #   quit_bricks(number)
-  #   pigs_build
-  # end
+  def run_game(number)
+    until @n <= 0 do
+    self.wolf_blows(number)
+    @n > 0 ? self.pigs_build : nil
+    end
+  end
+
+  def wolf_blows(number)
+    @view.blow_animation_1(number)
+    @view.blow_animation_2(number)
+    return @n = @n - number
+  end
+
+  def pigs_build
+    time1 = Time.now
+    time2 = nil
+    until time2.to_i - time1.to_i >= @building_timelapse
+      time2 = Time.new
+      @view.display_scene(@n)
+      @n += 1
+      @n > 23 ? @n = 23 : nil
+      gets.chomp
+    end
+    return @n
+  end
+
 
   # def quit_bricks(number)
   #   number.times do
@@ -43,4 +53,5 @@ class HidingGameController
   # end
 end
 
-HidingGameController.new
+HidingGameController.new.display_scene
+HidingGameController.new.run_game(10)
