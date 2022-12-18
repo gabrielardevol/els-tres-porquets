@@ -4,59 +4,51 @@ require_relative "hiding_game_view"
 
 class HidingGameController
 
-  def initialize
+  def initialize(bricks_left = 23)
     @view = HidingGameView.new
-    @n = 23
+    @n = bricks_left
     @building_timelapse = 3
   end
 
-  def display_scene
-    @view.display_scene(@n)
+  def display_scene(bricks_left)
+    @view.display_scene(bricks_left)
   end
 
-  def run_game(number)
-    until @n <= 0 do
-    self.wolf_blows(number, @n)
-    @n = @n - number
-    @n > 0 ? self.pigs_build : nil
-    end
+  def wolf_blows(bricks_left, bricks_to_remove)
+    HidingGameView.new(bricks_left).blow(bricks_to_remove)
   end
 
-  def wolf_blows(number, bricks_left)
-    HidingGameView.new(bricks_left).blow_animation_1(number)
-    puts bricks_left
-    puts number
-    #HidingGameView.new(bricks_left).blow_animation_2(number)
-    # return @n = @n - number
-  end
-
-  def pigs_build
-    puts "pigs build"
+  def pigs_build(bricks = @n)
+    #@view.display_scene(bricks)
     time1 = Time.now
     time2 = nil
     until time2.to_i - time1.to_i >= @building_timelapse
       time2 = Time.new
-      @view.display_scene(@n)
+      @view.display_scene(bricks)
       gets.chomp
-      @n += 1
-      @n > 23 ? @n = 23 : nil
+      bricks += 1
+      bricks > 23 ? bricks = 23 : nil
     end
-    return @n
+    @n = bricks # might not be necessary
   end
 
+  def run_game(number)
 
-  # def quit_bricks(number)
-  #   number.times do
-  #     @n < 0 ? @n = 0 : nil
-  #     @view.display_hiding(@n)
-  #     @n -= 1
-  #     @n == 0 ? puts("wolf wins") : nil
-  #     @view.blow(number)
-  #     sleep(0.35)
-  #   end
-  # end
+     until @n <= 0 do
+      self.wolf_blows(@n, number)
+      # @n -= 1
+       @n = @n - number
+       @n > 0 ? self.pigs_build(@n) : nil
+     end
+  end
+
 end
 
-hgc = HidingGameController.new
-hgc.run_game(10)
-hgc.display_scene
+
+# HidingGameController.new.display_scene(21)
+
+# HidingGameView.new(20).blow(3)
+
+# HidingGameController.new.pigs_build(10)
+
+ HidingGameController.new(21).run_game(5)

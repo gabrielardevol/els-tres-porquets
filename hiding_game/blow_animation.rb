@@ -1,14 +1,14 @@
 
-class BlowAnimation
+class Blow
+
+  #returns array of "blows" as frames
   def initialize(blown = 3, margin = 5)
     @margin = margin
     @blown = blown
     arrays_array
   end
 
-  # this method returns to the view an array of arrays
-  # with the blowing emoji
-  def arrays_array(frame = 5)
+  def arrays_array
     blank = "  "
     blow = "💨"
     left_margin = 0
@@ -34,6 +34,8 @@ class BlowAnimation
       super_array << array[@blown..(@margin + @blown - 1)].join
     end
 
-    super_array[frame]
+    super_array
   end
 end
+
+# p Blow.new.arrays_array

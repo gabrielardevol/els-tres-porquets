@@ -1,4 +1,5 @@
 class House
+  #returns array of rows for a given brick quantity. You can call single brick rows.
   attr_accessor :row1, :row2, :row3, :row4, :row5, :row6
   def initialize(number = 23)
     @number = number
@@ -6,16 +7,16 @@ class House
 
   def array
     array = []
-    array << row6(@number)
-    array << row5(@number)
-    array << row4(@number)
-    array << row3(@number)
-    array << row2(@number)
-    array << row1(@number)
+    array << row6
+    array << row5
+    array << row4
+    array << row3
+    array << row2
+    array << row1
   end
 
-  def row6(number)
-    case number
+  def row6
+    case @number
     when 23
       "     🧱"
     else
@@ -23,8 +24,8 @@ class House
     end
   end
 
-  def row5(number)
-    case number
+  def row5
+    case @number
     when 22..23
       "   🧱🧱🧱"
     when 21
@@ -36,8 +37,8 @@ class House
     end
   end
 
-  def row4(number)
-    case number
+  def row4
+    case @number
     when 19..23
       " 🧱🧱🧱🧱🧱"
     when 18
@@ -53,8 +54,8 @@ class House
     end
   end
 
-  def row3(number)
-    case number
+  def row3
+    case @number
     when 14..23
       "🧱🧱🧱🧱🧱🧱"
     when 13
@@ -72,8 +73,8 @@ class House
     end
   end
 
-  def row2(number)
-    case number
+  def row2
+    case @number
     when 8..23
       "🧱🧱  🐷🧱🧱"
     when 7
@@ -87,8 +88,8 @@ class House
     end
   end
 
-  def row1(number)
-    case number
+  def row1
+    case @number
     when 4..23
       "🧱🧱🐷🐷🧱🧱"
     when 3
@@ -103,3 +104,5 @@ class House
   end
 
 end
+
+# p House.new(3).row1
