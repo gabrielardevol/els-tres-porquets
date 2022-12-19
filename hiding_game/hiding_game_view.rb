@@ -18,6 +18,7 @@ class HidingGameView
     self.blow_animation_2(blown)
 
     blown += 2
+
   end
 
   def display_scene(bricks)
