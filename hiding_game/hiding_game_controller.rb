@@ -51,4 +51,4 @@ end
 
 # HidingGameController.new.pigs_build(10)
 
- HidingGameController.new(21).run_game(5)
+ HidingGameController.new(21).run_game(12)
