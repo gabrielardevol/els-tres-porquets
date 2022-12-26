@@ -2,23 +2,28 @@ require_relative "blow_animation"
 require_relative "house_animation"
 
 class HidingGameView
+  attr_reader :running
+
   def initialize(n = 23)
     @n = n
     @sleeptime = 0.1
     @margin = 5
     @frame = 0
+    @running = false
+  end
+
+  def running
+    @running
   end
 
   def blow(blown)
+    @running = true
     self.blow_animation_1(blown)
-
     @array = [] #reset array
     @n -= 1
-
     self.blow_animation_2(blown)
-
     blown += 2
-
+    @running = false
   end
 
   def display_scene(bricks)

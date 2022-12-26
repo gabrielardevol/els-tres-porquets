@@ -2,12 +2,15 @@
 require_relative "hiding_game_view"
 # require_relative "wolf_animation"
 
+
+# he de buscar la forma en què, mitjaçant un atribut running al view, el controller sols sumi si running és faLS
+
 class HidingGameController
 
   def initialize(bricks_left = 23)
     @view = HidingGameView.new
     @n = bricks_left
-    @building_timelapse = 3
+    @building_timelapse = 1
   end
 
   def display_scene(bricks_left)
@@ -34,11 +37,12 @@ class HidingGameController
 
   def run_game(number)
 
-     until @n <= 0 do
+     5.times do
       self.wolf_blows(@n, number)
       # @n -= 1
        @n = @n - number
        @n > 0 ? self.pigs_build(@n) : nil
+       number += 3
      end
   end
 
@@ -51,4 +55,4 @@ end
 
 # HidingGameController.new.pigs_build(10)
 
- HidingGameController.new(21).run_game(12)
+ HidingGameController.new(23).run_game(5)
