@@ -6,22 +6,18 @@ class HidingGameView
 
   def initialize(n = 23)
     @n = n
-    @sleeptime = 0.1
+    @sleeptime = 0.3
     @margin = 5
     @frame = 0
     @running = false
   end
 
-  def running
-    @running
-  end
-
-  def blow(blown)
+  def blow(num, blown)
     @running = true
-    self.blow_animation_1(blown)
+    self.blow_animation_1(num, blown)
     @array = [] #reset array
-    @n -= 1
-    self.blow_animation_2(blown)
+    num -= 1
+    self.blow_animation_2(num, blown)
     blown += 2
     @running = false
   end
@@ -42,29 +38,29 @@ class HidingGameView
   end
 
 
-  def blow_animation_1(blown)
+  def blow_animation_1(num, blown)
     @array = []
     @frame = 0
 
     (@margin + 1).times do
       @array = Blow.new(blown, @margin).arrays_array
 
-      house_rows65432(@n)
-      puts "🐺" + @array[@frame] + House.new(@n).array[-1]
+      house_rows65432(num)
+      puts "🐺" + @array[@frame] + House.new(num).array[-1]
       sleep(@sleeptime)
 
       @frame += 1
     end
   end
 
-  def blow_animation_2(blown)
+  def blow_animation_2(num, blown)
     @frame = @margin + 1
     blown.times do
 
-      house_rows65432(@n)
-      puts "🐺" + Blow.new(blown, @margin).arrays_array[@frame] + House.new(@n).array[-1]
+      house_rows65432(num)
+      puts "🐺" + Blow.new(blown, @margin).arrays_array[@frame] + House.new(num).array[-1]
       sleep(@sleeptime)
-      @n > 0 ? @n -= 1 : nil
+      num > 0 ? num -= 1 : nil
 
       @frame += 1
     end
@@ -75,8 +71,8 @@ end
 
 # HidingGameView.new.house_rows65432(23) WON'T WORK - PRIVATE METHOD
 
-# HidingGameView.new(23).running(5)
+# puts HidingGameView.new.running
 
-# HidingGameView.new(10).blow(5)
+# HidingGameView.new.blow(5, 5)
 # HidingGameView.new(10).blow_animation_2(5)
 # HidingGameView.new(23).display_scene(22)

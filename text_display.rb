@@ -1,6 +1,6 @@
 # Text View displays strings using visual effects on console
 class Text
-  def display(array, time, top_space, upper_string = '', bottom_space = 0)
+  def display(array, time = 0.1, top_space = 10, upper_string = '', bottom_space = 0)
     index = 0
     until index == array.size
       top_spacing(top_space)

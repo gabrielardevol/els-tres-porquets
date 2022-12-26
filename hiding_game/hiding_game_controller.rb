@@ -1,7 +1,4 @@
-# require_relative "../game_controller.rb"
 require_relative "hiding_game_view"
-# require_relative "wolf_animation"
-
 
 # he de buscar la forma en què, mitjaçant un atribut running al view, el controller sols sumi si running és faLS
 
@@ -18,16 +15,16 @@ class HidingGameController
   end
 
   def wolf_blows(bricks_left, bricks_to_remove)
-    HidingGameView.new(bricks_left).blow(bricks_to_remove)
+    @view.blow(bricks_left, bricks_to_remove)
   end
 
-  def pigs_build(bricks = @n)
+  def pigs_build(bricks = @n.to_f)
     #@view.display_scene(bricks)
     time1 = Time.now
     time2 = nil
     until time2.to_i - time1.to_i >= @building_timelapse
       time2 = Time.new
-      @view.display_scene(bricks)
+      @view.display_scene(bricks.to_i)
       gets.chomp
       bricks += 1
       bricks > 23 ? bricks = 23 : nil
@@ -36,10 +33,8 @@ class HidingGameController
   end
 
   def run_game(number)
-
      5.times do
       self.wolf_blows(@n, number)
-      # @n -= 1
        @n = @n - number
        @n > 0 ? self.pigs_build(@n) : nil
        number += 3
@@ -55,4 +50,4 @@ end
 
 # HidingGameController.new.pigs_build(10)
 
- HidingGameController.new(23).run_game(5)
+HidingGameController.new(23).run_game(3)
