@@ -42,12 +42,3 @@ class HidingGameController
   end
 
 end
-
-
-# HidingGameController.new.display_scene(21)
-
-# HidingGameView.new(20).blow(3)
-
-# HidingGameController.new.pigs_build(10)
-
-HidingGameController.new(23).run_game(3)

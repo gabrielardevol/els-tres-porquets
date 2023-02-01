@@ -1,8 +1,8 @@
-# require_relative "../game_controller.rb"
+# require_relative "../running_game_controller.rb"
 require_relative "hiding_game_view"
 # require_relative "wolf_animation"
 
-class HidingGameController
+class HidingRunningGameController
 
   def initialize
     @view = HidingGameView.new
@@ -55,6 +55,6 @@ class HidingGameController
   # end
 end
 
-hgc = HidingGameController.new
+hgc = HidingRunningGameController.new
 hgc.run_game(10)
 hgc.display_scene

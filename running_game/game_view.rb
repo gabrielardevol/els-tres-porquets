@@ -2,7 +2,7 @@ class GameView
   def initialize
     # p "gameview initialized"
   end
-  def display_rungame(array)
+  def display_rungame(array = [25, 25, 50])
     start_distance = array[0]
     wolf_to_pig_distance = array[1]
     pig_to_hiding_distance = array[2]
